@@ -15,7 +15,6 @@ class Solution(object):
             if c[x] > 0:
                 ans += x,
                 c[x] -= 1
-        print ans
         return ans
 
 
