@@ -11,10 +11,10 @@ package main
 //return [0, 1].
 
 func twoSum(nums []int, target int) []int {
-	len_num := len(nums)
+	lenNum := len(nums)
 	init := make([]int, 2)
-	for i := 0; i < len_num; i++ {
-		for j := i + 1; j < len_num; j++ {
+	for i := 0; i < lenNum; i++ {
+		for j := i + 1; j < lenNum; j++ {
 			if nums[i]+nums[j] == target {
 				init = []int{i, j}
 				return init
@@ -22,8 +22,4 @@ func twoSum(nums []int, target int) []int {
 		}
 	}
 	return init
-}
-
-func main() {
-	twoSum()
 }
