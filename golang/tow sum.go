@@ -1,4 +1,4 @@
-package golang
+package main
 
 func twoSum(nums []int, target int) []int {
 	len_num := len(nums)

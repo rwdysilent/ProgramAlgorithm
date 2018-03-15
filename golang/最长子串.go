@@ -5,7 +5,7 @@ import (
 	_"strings"
 )
 
-func lengthOfLongestSubstring(s string) int {
+func lengthOfLongestSubstring(s string){
     max := 0
     hash_map := make(map[byte]int)
     // start unrepeated char
@@ -22,14 +22,10 @@ func lengthOfLongestSubstring(s string) int {
         hash_map[s[i]] = i
     }
 	fmt.Println(hash_map)
-    return max
 }
 
 func main() {
 	//s := "nfpdmpi"
 	s := "abbacd"
-	n := lengthOfLongestSubstring(s)
-	fmt.Println(n)
-
-
+	lengthOfLongestSubstring(s)
 }
