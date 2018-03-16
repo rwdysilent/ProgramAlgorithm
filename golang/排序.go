@@ -1,6 +1,6 @@
-// Copyright 2018 TED@Sogou, Inc. All rights reserved.
+// Copyright 2018 . All rights reserved.
 //
-// @Author: wupengfei@sogou-inc.com
+// @Author: pfwu
 // @Date: 2018-03-14 21:36
 
 package main
