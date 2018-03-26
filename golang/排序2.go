@@ -10,7 +10,7 @@ import "fmt"
 var d = []int{33, 5, 76, 4, 34, 32, 6}
 
 //快速排序
-//快速排序一听名字就觉得很高端，在实际应用当中快速排序确实也是表现最好的排序算法。冒泡排序虽然高端，但其实其思想是来自冒泡排序，冒泡排序是通过
+//快速排序一听名字就觉得很高端，在实际应用当中快速排序确实也是表现最好的排序算法。快速排序虽然高端，但其实其思想是来自冒泡排序，冒泡排序是通过
 //相邻元素的比较和交换把最小的冒泡到最顶端，而快速排序是比较和交换小数和大数，这样一来不仅把小数冒泡到上面同时也把大数沉到下面。
 //举个栗子：对5,3,8,6,4这个无序序列进行快速排序，思路是右指针找比基准数小的，左指针找比基准数大的，交换之。
 //
@@ -26,7 +26,7 @@ var d = []int{33, 5, 76, 4, 34, 32, 6}
 //
 //快速排序是不稳定的，其时间平均时间复杂度是O(nlgn)。
 func quickSort(num []int, left, right int) []int {
-	if num == nil {
+	if num == nil || len(num) == 0 {
 		return num
 	}
 	if left < right {
@@ -59,7 +59,62 @@ func quickSort(num []int, left, right int) []int {
 	return num
 }
 
+//维基百科例子
+func qsort(data []int) {
+	if len(data) <= 1 {
+		return
+	}
+	mid := data[0]
+	head, tail := 0, len(data)-1
+	for i := 1; i <= tail; {
+		if data[i] > mid {
+			data[i], data[tail] = data[tail], data[i]
+			tail--
+			fmt.Println("if: ", data)
+		} else {
+			data[i], data[head] = data[head], data[i]
+			head++
+			i++
+			fmt.Println("else: ", data)
+		}
+	}
+	data[head] = mid
+	qsort(data[:head])
+	qsort(data[head+1:])
+}
+
+//练习
+func myQsort(data []int) {
+	if len(data) <= 1 {
+		return
+	}
+
+	base := data[0]
+	head, tail := 0, len(data)-1
+
+	for i := 1; i <= tail; {
+		if data[i] > base {
+			data[i], data[tail] = data[tail], data[i]
+			tail--
+		} else {
+			data[i], data[head] = data[head], data[i]
+			head++
+			i++
+		}
+	}
+
+	data[head] = base
+	myQsort(data[:head])
+	myQsort(data[head+1:])
+}
+
 func main() {
-	fmt.Println(quickSort(d, 0, len(d)-1))
+	//fmt.Println(quickSort(d, 0, len(d)-1))
 	//fmt.Println(d)
+	//fmt.Println("========")
+	//qsort(d)
+	//fmt.Println("========")
+	//fmt.Println(d)
+	myQsort(d)
+	fmt.Println(d)
 }
