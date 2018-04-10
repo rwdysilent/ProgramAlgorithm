@@ -70,12 +70,10 @@ func qsort(data []int) {
 		if data[i] > mid {
 			data[i], data[tail] = data[tail], data[i]
 			tail--
-			fmt.Println("if: ", data)
 		} else {
 			data[i], data[head] = data[head], data[i]
 			head++
 			i++
-			fmt.Println("else: ", data)
 		}
 	}
 	data[head] = mid
