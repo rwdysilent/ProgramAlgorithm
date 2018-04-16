@@ -10,6 +10,12 @@
 # Can you solve it without using extra space
 # 思路：设置两个指针，一个快指针，一个慢指针，快指针每次移动2个位置，慢指针每次移动1个位置，如果是回环链表，俩指针必定会相遇
 
+# Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
 
 class Solution(object):
     def hasCycle(self, head):
