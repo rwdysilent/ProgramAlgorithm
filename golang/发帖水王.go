@@ -60,7 +60,6 @@ func findThreeIds([]int) []int {
 			times[2]--
 		}
 	}
-	fmt.Println(candidate)
 	return candidate
 }
 
