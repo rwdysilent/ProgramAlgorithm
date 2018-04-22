@@ -5,17 +5,26 @@
 
 package main
 
-func binary_search(arr []int, low, high, hkey int) int {
+import "fmt"
+
+func binarySearch(arr []int, low, high, hkey int) int {
 	if low > high {
 		return -1
 	}
 	mid := low + (high-low)/2
 
 	if arr[mid] > hkey {
-		return binary_search(arr, low, mid-1, hkey)
+		return binarySearch(arr, low, mid-1, hkey)
 	} else if arr[mid] < hkey {
-		return binary_search(arr, mid+1, high, hkey)
+		return binarySearch(arr, mid+1, high, hkey)
 	}
 
 	return mid
+}
+
+func main() {
+	arr := []int{1, 3, 2, 5, 4, 7, 6}
+
+	n := binarySearch(arr, 0, 7, 7)
+	fmt.Println(n)
 }
