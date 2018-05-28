@@ -107,12 +107,6 @@ func myQsort(data []int) {
 }
 
 func main() {
-	//fmt.Println(quickSort(d, 0, len(d)-1))
-	//fmt.Println(d)
-	//fmt.Println("========")
-	//qsort(d)
-	//fmt.Println("========")
-	//fmt.Println(d)
 	myQsort(d)
 	fmt.Println(d)
 }
