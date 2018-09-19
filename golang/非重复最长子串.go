@@ -30,29 +30,32 @@ import (
 )
 
 func lengthOfLongestSubstring(s string) int {
-    max := 0
-    hashMap := make(map[byte]int)
+	max := 0
+	hashMap := make(map[byte]int)
 
-    // start unrepeated char
-    start := 0
-    for i := 0; i < len(s); i++ {
-        if prev, ok := hashMap[s[i]]; ok {
-        	//如果map中存在，则为重复字符串，如果子串起始值start小于重复字符串+1值，更新子串start值(避免abba这样的case)
-            if start < prev + 1 {
-                start = prev + 1
-            }
-        }
-        //max值等于遍历下标值减去子串起始值+1
-        if i-start+1 > max {
-            max = i - start + 1
-        }
-        //更新map value为最后一次出现的字符下标值
-        hashMap[s[i]] = i
-    }
+	// start unrepeated char
+	start := 0
+	for i := 0; i < len(s); i++ {
+		if prev, ok := hashMap[s[i]]; ok {
+			//如果map中存在，则为重复字符串，如果子串起始值start小于重复字符串+1值，更新子串start值(避免abba这样的case)
+			if start < prev+1 {
+				start = prev + 1
+			}
+		}
+		//max值等于遍历下标值减去子串起始值+1
+		if i-start+1 > max {
+			max = i - start + 1
+		}
+		//更新map value为最后一次出现的字符下标值
+		hashMap[s[i]] = i
+	}
 	return max
 }
 
 func main() {
-	s := "abbacd"
-	fmt.Println(lengthOfLongestSubstring(s))
+	str := []string{"ab", "abba", "abbbca", "abcde"}
+	for _, s := range str {
+		fmt.Println(s)
+		fmt.Println(lengthOfLongestSubstring(s))
+	}
 }
