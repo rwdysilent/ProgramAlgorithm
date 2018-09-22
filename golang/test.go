@@ -5,9 +5,50 @@
 
 package main
 
-import "fmt"
+import (
+	"sync"
+	"fmt"
+)
+
+type threadSafeSet struct {
+	s []string
+	sync.RWMutex
+}
+
+var wg sync.WaitGroup
+
+func (set *threadSafeSet) Iter() {
+	ch := make(chan interface{})
+	//go func() {
+	//	set.RLock()
+	//	for elem := range set.s {
+	//		ch <- elem
+	//	}
+	//	close(ch)
+	//	set.RUnlock()
+	//}()
+
+	for elem := range set.s {
+		wg.Add(1)
+		go func(elem int) {
+			defer wg.Done()
+			ch <- elem
+		}(elem)
+	}
+
+	go func() {
+		wg.Wait()
+		close(ch)
+	}()
+
+	for range ch {
+		fmt.Println(<-ch)
+	}
+	//return ch
+}
 
 func main() {
-	s := "string"
-	fmt.Printf("%T", s[1])
+	t := new(threadSafeSet)
+	t.s = []string{"a", "b"}
+	t.Iter()
 }
