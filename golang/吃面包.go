@@ -11,8 +11,7 @@ package main
 
 import (
 	"fmt"
-	"strings"
-)
+	)
 
 var EndAns [][]string
 
@@ -48,12 +47,32 @@ func arrangement(ans []string) {
 	}
 }
 
-func main() {
-	eatBread(4)
-	arrangement([]string{"2", "2"})
-	fmt.Println("End: ", EndAns)
+func fab(n int) {
+	var s string = ""
+	myFab(n, s)
+}
 
-	fmt.Println(strings.Count("fivefivesasd", "ive"))
-	fmt.Println(strings.HasPrefix("-&-weixin", "&"))
-	fmt.Println(strings.IndexAny("-&weixin", "#"))
+func myFab(n int, s string) {
+	if n == 0 {
+		fmt.Println(s)
+		return
+	}
+	if n > 0 {
+		myFab(n-1, s+"1")
+	}
+	if n > 1 {
+		myFab(n-2, s+"2")
+	}
+}
+
+func main() {
+	//eatBread(4)
+	//arrangement([]string{"2", "2"})
+	//fmt.Println("End: ", EndAns)
+	//
+	//fmt.Println(strings.Count("fivefivesasd", "ive"))
+	//fmt.Println(strings.HasPrefix("-&-weixin", "&"))
+	//fmt.Println(strings.IndexAny("-&weixin", "#"))
+
+	myFab(10, "")
 }

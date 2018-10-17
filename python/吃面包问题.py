@@ -10,13 +10,29 @@ def eat(n):
         return ['1']
     if n == 2:
         return ['11', '2']
-    return list(set(list(set(map(lambda x: '1' + x, eat(n - 1)))) +
-                list(set(map(lambda x: '2' + x, eat(n - 2)))) +
-                list(set(map(lambda x: '11' + x, eat(n - 2))))))
+    return list(set(
+                    list(
+                        set(
+                            map(lambda x: '1' + x, eat(n - 1))
+                            )
+                    ) +
+                    list(
+                        set(
+                            map(lambda x: '2' + x, eat(n - 2))
+                            )
+                    ) +
+                    list(
+                        set(map(lambda x: '11' + x, eat(n - 2)))
+                    )
+                ))
 
 
 if __name__ == '__main__':
     print(eat(3))
 
+    print("----")
     print(list(set(map(lambda x: '1' + x, ['1', '2', '1']))))
     print(list(set(map(lambda x: '2' + x, eat(3 - 2)))))
+
+    print('---')
+    print(list(set(map(lambda x: '2' + x, ['1', '2', '1']))))

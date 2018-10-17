@@ -76,7 +76,6 @@ func qsort(data []int) {
 			i++
 		}
 	}
-	data[head] = mid
 	qsort(data[:head])
 	qsort(data[head+1:])
 }
@@ -100,8 +99,8 @@ func myQsort(data []int) {
 			i++
 		}
 	}
-
-	data[head] = base
+	fmt.Println("data: ", data)
+	fmt.Printf("base: %d, head: %d, data[head]: %d\n", base, head, data[head])
 	myQsort(data[:head])
 	myQsort(data[head+1:])
 }
