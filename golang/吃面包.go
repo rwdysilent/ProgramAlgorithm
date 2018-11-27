@@ -36,8 +36,32 @@ func FindN(n int) []string {
 	return tmp
 }
 
-func main() {
-	t := FindN(2)
-	fmt.Println("=========")
-	fmt.Printf("%+v", t)
+//func main() {
+//	t := FindN(2)
+//	fmt.Println("=========")
+//	fmt.Printf("%+v", t)
+//}
+
+func FindY(n int) int {
+	if n == 1 {
+		return 1
+	}
+	if n == 2 {
+		return 2
+	}
+
+	//return FindY(n - 1) + FindY(n - 2)
+	a := 1
+	b := 2
+	var tmp int
+	for i := 3; i <= n; i++ {
+		tmp = a + b
+		a = b
+		b = tmp
+	}
+	return tmp
+}
+
+func main(){
+	fmt.Println(FindY(5))
 }

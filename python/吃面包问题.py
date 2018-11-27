@@ -32,7 +32,7 @@ def eat(n):
 
 
 if __name__ == '__main__':
-    # print(eat(4))
+    print(eat(4))
     #
     # print("----")
     # print(list(set(map(lambda x: '1' + x, ['1', '2', '1']))))
@@ -41,4 +41,4 @@ if __name__ == '__main__':
     # print('---')
     # print(list(set(map(lambda x: '2' + x, ['1', '2', '1']))))
 
-    print(list(set(map(lambda x: x + '1', ['1', '2', '1']))))
+    # print(list(set(map(lambda x: x + '1', ['1', '2', '1']))))
