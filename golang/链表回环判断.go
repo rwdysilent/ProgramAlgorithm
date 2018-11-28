@@ -16,12 +16,14 @@
 
 package main
 
+import "fmt"
+
 type ListNodeCycle struct {
 	value int
 	next  *ListNodeCycle
 }
 
-func Solution(head *ListNodeCycle) bool {
+func hasCycle(head *ListNodeCycle) bool {
 	if head == nil || head.next == nil {
 		return false
 	}
@@ -38,4 +40,24 @@ func Solution(head *ListNodeCycle) bool {
 	}
 
 	return true
+}
+
+func main() {
+	node1 := new(ListNodeCycle)
+	node2 := new(ListNodeCycle)
+	node3 := new(ListNodeCycle)
+	node4 := new(ListNodeCycle)
+	node5 := new(ListNodeCycle)
+	node1.value = 1
+	node2.value = 2
+	node3.value = 3
+	node4.value = 4
+	node5.value = 5
+	node1.next = node2
+	node2.next = node3
+	node3.next = node4
+	node4.next = node5
+	node5.next = node1
+
+	fmt.Println(hasCycle(node1))
 }
