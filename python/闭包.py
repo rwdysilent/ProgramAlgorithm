@@ -3,15 +3,30 @@
 # @Date: 2018-03-24 23:34
 
 
-def f(x):
-    def g(y):
-        return x + y
-    return g
+# def f():
+#     x = 1
+#
+#     def g(y):
+#         return x + y
+#
+#     return g
+#
+#
+# if __name__ == '__main__':
+#     a = f()
+#     print(a(1))
+#     print(a(2))
 
 
-if __name__ == '__main__':
-    a = f(1)
-    b = f(1)
-    print(a(1))
-    print(b(2))
-    print(a(1) == b(1))
+lists = []
+
+for i in range(3):
+    def func(x):
+        return x*i
+    lists.append(func)
+
+
+print(lists)
+
+for f in lists:
+    print(f(2))
