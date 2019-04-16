@@ -1,20 +1,23 @@
 # -*- coding: utf-8 -*-
-#极简方法
+# 极简方法
 import re
+
+
 class Solution(object):
     def reverseVowels(self, s):
         """
         :type s: str
         :rtype: str
         """
-        #print re.sub('(?i)[aeiou]', lambda m, v=re.findall('(?i)[aeiou]', s): v.pop(), s)
+        # print re.sub('(?i)[aeiou]', lambda m, v=re.findall('(?i)[aeiou]', s): v.pop(), s)
 
-        #vowels = re.findall('(?i)[aeiou]', s)
-        #print re.sub('(?i)[aeiou]', lambda m: vowels.pop(), s)
-        vowels = re.findall('[aeiou]', s, flags = re.IGNORECASE)
-        print re.sub('[aeiou]', lambda m: vowels.pop(), s, flags = re.IGNORECASE)
+        # vowels = re.findall('(?i)[aeiou]', s)
+        # print re.sub('(?i)[aeiou]', lambda m: vowels.pop(), s)
+        vowels = re.findall('[aeiou]', s, flags=re.IGNORECASE)
+        print(re.sub('[aeiou]', lambda m: vowels.pop(), s, flags=re.IGNORECASE))
 
-#传统方法
+
+# 传统方法
 class Solution2(object):
     def reverseVowels(self, s):
         vowels = "aeiouAEIOU"
@@ -29,7 +32,8 @@ class Solution2(object):
                 ptr_1 += 1
             if s[ptr_2] not in vowels:
                 ptr_2 -= 1
-        print ''.join(s)
+        print(''.join(s))
+
 
 P = Solution2()
 P.reverseVowels("hello")

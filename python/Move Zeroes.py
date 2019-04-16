@@ -1,4 +1,7 @@
 # leetcode 283. Move Zeroes
+# https://coding.imooc.com/lesson/82.html#mid=2659
+
+
 class Solution1(object):
     def moveZeroes(self, nums):
         """

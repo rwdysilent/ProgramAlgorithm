@@ -6,10 +6,11 @@ class Solution(object):
         :rtype: int
         """
         if num == 0:
-            print num
+            print(num)
         else:
             tmp = num % 9
-            print 9 if tmp == 0 else tmp
+            print(9 if tmp == 0 else tmp)
+
 
 P = Solution()
 P.addDigits(18)
