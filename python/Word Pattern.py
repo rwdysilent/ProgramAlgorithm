@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+# leetcode 290
 class Solution(object):
     def wordPattern(self, pattern, str):
         """

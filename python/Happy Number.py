@@ -2,8 +2,8 @@
 # Copyright 2019 pfwu. All rights reserved.
 # @Author: pfwu
 # @Date: 2019-04-17 19:40
-# leetcode 202
 
+# leetcode 202
 class Solution(object):
     def isHappy(self, n):
         """
