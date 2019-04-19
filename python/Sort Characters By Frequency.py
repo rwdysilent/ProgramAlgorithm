@@ -24,8 +24,7 @@ class Solution(object):
         for i in reversed(s_values):
             for k, v in s_map.items():
                 if i == v:
-                    for _ in range(v):
-                        res += k
+                    res += k*v
                     s_map.pop(k)
         return res
 
