@@ -27,6 +27,7 @@ class Solution(object):
                 map_nums[nums[i]] = i
 
 
-numbers = [3, 3]
+# numbers = [3, 3]
+numbers = [1, 2, -2, -1]
 P = Solution()
-print(P.twoSum(numbers, 6))
+print(P.twoSum(numbers, 1))

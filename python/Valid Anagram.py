@@ -2,8 +2,8 @@
 # Copyright 2019 pfwu. All rights reserved.
 # @Author: pfwu
 # @Date: 2019-04-17 17:55
-# LeetCode 242
 
+# LeetCode 242
 class Solution(object):
     def isAnagram(self, s, t):
         """
