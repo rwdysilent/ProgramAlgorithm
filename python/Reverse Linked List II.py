@@ -4,7 +4,6 @@
 # @Date: 2019-05-27 20:27
 # LeetCode92
 
-# Todo
 # Definition for singly-linked list.
 class ListNode(object):
     def __init__(self, x):
@@ -20,22 +19,28 @@ class Solution(object):
         :type n: int
         :rtype: ListNode
         """
+        if m == n:
+            return head
 
-        pre = ListNode(0)
-        pre.next = head
+        dummy = ListNode(0)
+        dummy.next = head
+        pre = dummy
+
         i = 0
-        while i < m:
+        while i < m - 1:
             pre = pre.next
             i += 1
 
-        head = pre.next
-        for i in range(m, n):
-            while i < n:
-                nex = head.next
+        reverse = None
+        cur = pre.next
+        for i in range(n - m + 1):
+            nex = cur.next
 
-                head.next = head.next.next
-                nex.next = pre.next
-                pre.next = nex
-                i += 1
+            cur.next = reverse
+            reverse = cur
+            cur = nex
 
-        return pre
+        pre.next.next = cur
+        pre.next = reverse
+
+        return dummy.next
